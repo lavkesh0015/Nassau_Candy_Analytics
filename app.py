@@ -16,7 +16,7 @@ st.title("🍫 Nassau Candy Analytics Dashboard")
 st.write("Sales and Profitability Analysis")
 
 # Load dataset
-df = pd.read_csv("data/candy_sales.csv")
+df = pd.read_csv("Data/candy_sales.csv")
 df["Order Date"] = pd.to_datetime(df["Order Date"])
 df["Ship Date"] = pd.to_datetime(df["Ship Date"])
 df["Shipping Days"] = (df["Ship Date"]-df["Order Date"]).dt.days
