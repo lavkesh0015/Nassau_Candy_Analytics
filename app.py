@@ -10,7 +10,65 @@ st.set_page_config(
     page_icon="🍫",
     layout="wide"
 )
+# Welcome / Landing Page
 
+if "show_dashboard" not in st.session_state:
+    st.session_state.show_dashboard = False
+
+if not st.session_state.show_dashboard:
+
+    st.markdown("""
+    <style>
+    .stApp {
+        background: linear-gradient(135deg, #3b160e, #7b2d26, #c76b36);
+    }
+
+    .welcome-box {
+        text-align: center;
+        padding: 65px 20px 35px 20px;
+        color: white;
+    }
+
+    .welcome-box h1 {
+        font-size: 52px;
+        color: #ffe0a3;
+    }
+
+    .welcome-box h2 {
+        font-size: 27px;
+        color: #ffffff;
+    }
+
+    .welcome-box p {
+        font-size: 18px;
+        color: #ffe8d0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="welcome-box">
+        <h1>🍫 Welcome to Nassau Candy 🍬</h1>
+        <h2>Where Sweetness Meets Smart Analytics!</h2>
+        <p>
+        Explore product performance, sales trends,
+        profitability and business insights.
+        </p>
+        <h1>🍭 🍬 🍫 🧁 🍩</h1>
+        <p>Your journey into Candy Business Analytics starts here.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.divider()
+
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col2:
+        if st.button("🍫 Explore Dashboard", use_container_width=True):
+            st.session_state.show_dashboard = True
+            st.rerun()
+
+    st.stop()
 # Dashboard heading
 st.title("🍫 Nassau Candy Analytics Dashboard")
 st.write("Sales and Profitability Analysis")
